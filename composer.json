@@ -1,0 +1,23 @@
+{
+    "name": "automa8/a8pkg-logger",
+    "description": "AEvent logger",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tian",
+            "email": "leaddeveloper@aevent.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {"AEvent\\": "src/"}
+    },
+    "require": {
+        "php": "^7.1",
+        "sentry/sentry-laravel": "1.7.0"
+    },
+    "require-dev": {
+      "phpunit/phpunit": "~7.0"
+    }
+}
