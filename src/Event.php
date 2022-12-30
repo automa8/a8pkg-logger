@@ -38,6 +38,8 @@ class Event
 
     public $fingerprint = null;
 
+    public $scheduleID = null;
+
     public $tags = [];
 
     public $user = [
@@ -102,6 +104,10 @@ class Event
             "email" => $dbname
         ];
         return $this;
+    }
+
+    public function setScheduleID($scheduleID) {
+        $this->scheduleID = $scheduleID;
     }
 
     public function initBreadCrumb($level, $type, $category, $description) {
