@@ -40,6 +40,8 @@ class Event
 
     public $scheduleID = null;
 
+    public $integrationID = null;
+
     public $tags = [];
 
     public $user = [
@@ -108,6 +110,10 @@ class Event
 
     public function setScheduleID($scheduleID) {
         $this->scheduleID = $scheduleID;
+    }
+
+    public function setIntegrationID($integrationID) {
+        $this->integrationID = $integrationID;
     }
 
     public function initBreadCrumb($level, $type, $category, $description) {

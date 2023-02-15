@@ -19,7 +19,7 @@ class Logger
     {
     }
 
-    public static function log($fingerprint = null, $caption = "", $user = null, $webinarID = null, $type = null, $level = null, $contexts = null, $variables = null, $scheduleID = null) {
+    public static function log($fingerprint = null, $caption = "", $user = null, $webinarID = null, $type = null, $level = null, $contexts = null, $variables = null, $scheduleID = null, $integrationID = null) {
         $event = new Event();
         $event->setCaption($caption);
         if ($user) {
@@ -49,6 +49,9 @@ class Logger
         }
         if ($scheduleID) {
             $event->setScheduleID($scheduleID);
+        }
+        if ($integrationID) {
+            $event->setIntegrationID($integrationID);
         }
         $event->updateBreadCrumbs();
         return $event->save();
@@ -80,6 +83,10 @@ class Logger
             if ($event->scheduleID) {
                 $scope->setTag('scheduleID', $event->scheduleID);
                 $fingerPrints[] = $event->scheduleID;
+            }
+            if ($event->integrationID) {
+                $scope->setTag('integrationID', $event->integrationID);
+                $fingerPrints[] = $event->integrationID;
             }
             $scope->setTag('logger', 'custom');
             $scope->setUser($event->user);
