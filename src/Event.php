@@ -42,6 +42,8 @@ class Event
 
     public $integrationID = null;
 
+    public $registrantID = null;
+
     public $tags = [];
 
     public $user = [
@@ -114,6 +116,10 @@ class Event
 
     public function setIntegrationID($integrationID) {
         $this->integrationID = $integrationID;
+    }
+
+    public function setRegistrantID($registrantID) {
+        $this->registrantID = $registrantID;
     }
 
     public function initBreadCrumb($level, $type, $category, $description) {

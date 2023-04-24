@@ -19,7 +19,7 @@ class Logger
     {
     }
 
-    public static function log($fingerprint = null, $caption = "", $user = null, $webinarID = null, $type = null, $level = null, $contexts = null, $variables = null, $scheduleID = null, $integrationID = null) {
+    public static function log($fingerprint = null, $caption = "", $user = null, $webinarID = null, $type = null, $level = null, $contexts = null, $variables = null, $scheduleID = null, $integrationID = null, $registrantID = null) {
         $event = new Event();
         $event->setCaption($caption);
         if ($user) {
@@ -52,6 +52,9 @@ class Logger
         }
         if ($integrationID) {
             $event->setIntegrationID($integrationID);
+        }
+        if ($registrantID) {
+            $event->setRegistrantID($registrantID);
         }
         $event->updateBreadCrumbs();
         return $event->save();
