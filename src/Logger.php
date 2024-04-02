@@ -91,6 +91,10 @@ class Logger
                 $scope->setTag('integrationID', $event->integrationID);
                 $fingerPrints[] = $event->integrationID;
             }
+            if ($event->registrantID) {
+                $scope->setTag('registrantID', $event->registrantID);
+                $fingerPrints[] = $event->registrantID;
+            }
             $scope->setTag('logger', 'custom');
             $scope->setUser($event->user);
             $scope->setFingerprint($fingerPrints);
